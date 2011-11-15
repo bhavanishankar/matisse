@@ -11,12 +11,12 @@ The com.js library provides for an abstraction over the internal messaging API.
 
 It has one method 'sendDrawMsg' to send data from the client. To receive data you must implement matisse.onDrawEvent.
 
-See the views/index.jade for example written in (http://jade-lang.com/)[jade] templating engine.
+See the views/index.jade for example written in [http://jade-lang.com/](jade) templating engine.
 
 See index.html in this directory for a vanilla html example.
 
 ### How to Run this app?
-To run this application you need to install (http://nodejs.org)[node.js] and also install npm.
+To run this application you need to install [http://nodejs.org](node.js) and also install npm.
 
 Then you can run 
 
