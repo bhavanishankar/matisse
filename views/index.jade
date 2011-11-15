@@ -1,0 +1,24 @@
+script(src='/socket.io/socket.io.js')
+script(src='/javascripts/com.js')
+script(src='/javascripts/jquery-1.7.min.js')
+script(type='text/javascript')
+	$(document).ready(function(){
+		$('#sendmsg').click(function(){
+			//We use matisse.sendDrawMsg to send the drawing data to all other clients.
+			matisse.sendDrawMsg($('#data').val());
+		});
+	});
+
+	//We shouldd override the matisse.onDraw function to process the data recieved from other clients
+	matisse.onDraw = function(data){
+		$('#msgs').append('<div>' + data + '<div>');
+	}
+
+h1= title
+p Welcome to #{title}
+label data:
+	input#data(type='text',value="{shape:'circle',radius:'10'}");
+
+input#sendmsg(type='button', name='send', value='send');
+
+div#msgs

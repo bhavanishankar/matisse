@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Matisse</title>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/javascripts/com.js"></script>
+        <script src="/javascripts/jquery-1.7.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('#sendmsg').click(function(){
+                    //We use matisse.sendDrawMsg to send the drawing data to all other clients.
+                    matisse.sendDrawMsg($('#data').val());
+                });
+            });
+
+            //We shouldd override the matisse.onDraw function to process the data recieved from other clients
+            matisse.onDraw = function(data){
+                $('#msgs').append('<div>' + data + '<div>');
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Matisse</h1>
+        <p>Welcome to Matisse</p>
+        <label>data:<input id="data" type="text" value="{shape:'circle',radius:'10'}"/></label>
+        <input id="sendmsg" type="button" name="send" value="send"/>
+        <div id="msgs"></div>
+    </body>
+</html>
